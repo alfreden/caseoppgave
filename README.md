@@ -7,13 +7,13 @@ installer asp.net web.api https://www.asp.net/web-api
 2. høyre klikk på filen og trykk rebuild
 3. gå inn i mappen FullstackCasen og skrive cmd i addresse linjen på toppen
 4. i CMD vinduet som åpner seg skriv inn "dotnet ef database update"(Dette for og opprette databasen)
-4.1 Hvis du får feilmelding har du mest sannsynlig en annen database eller ett annet navn på databasen.
-4.2 Inne i Prosjektfilen (FullstackCasen.sln) Trykk på View og SQL Server Object explorer
-4.3 Inne i SQL Server Object exploreren trykk på SQL Server. Du vil da se navnet på serveren.
-4.4 Åpne opp filen appsettings.json og endre det som står bak "DefaultConnection" til navnet på SQL serveren.
-5. Når dette er gjort må du åpne opp mappen til react og skrive cmd i addresse vinduet på toppen
-6. skriv NPM start inne i cmd vinduet
-7. åpne opp filen index.html i en nettleser
+5. Hvis du får feilmelding har du mest sannsynlig en annen database eller ett annet navn på databasen.
+6. Inne i Prosjektfilen (FullstackCasen.sln) Trykk på View og SQL Server Object explorer
+7. Inne i SQL Server Object exploreren trykk på SQL Server. Du vil da se navnet på serveren.
+8. Åpne opp filen appsettings.json og endre det som står bak "DefaultConnection" til navnet på SQL serveren.
+9. Når dette er gjort må du åpne opp mappen til react og skrive cmd i addresse vinduet på toppen
+10. skriv NPM start inne i cmd vinduet
+11. åpne opp filen index.html i en nettleser
 
 Du skal nå kunne se nettsiden.
 Databasene som ble opprettet i sted er helt tomme, så innholdet på nettsiden er deretter.
