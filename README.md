@@ -1,4 +1,29 @@
-# FullstackReact
+#Howto
+
+installer Node https://nodejs.org/en/
+installer asp.net web.api https://www.asp.net/web-api
+
+1. Åpne opp prosjektfilen FullstackCasen.sln
+2. høyre klikk på filen og trykk rebuild
+3. gå inn i mappen FullstackCasen og skrive cmd i addresse linjen på toppen
+4. i CMD vinduet som åpner seg skriv inn "dotnet ef database update"(Dette for og opprette databasen)
+	4.1 Hvis du får feilmelding har du mest sannsynlig en annen database eller ett annet navn på databasen.
+	4.2 Inne i Prosjektfilen (FullstackCasen.sln) Trykk på View og SQL Server Object explorer
+	4.3 Inne i SQL Server Object exploreren trykk på SQL Server. Du vil da se navnet på serveren.
+	4.4 Åpne opp filen appsettings.json og endre det som står bak "DefaultConnection" til navnet på SQL serveren.
+5. Når dette er gjort må du åpne opp mappen til react og skrive cmd i addresse vinduet på toppen
+6. skriv NPM start inne i cmd vinduet
+7. åpne opp filen index.html i en nettleser
+
+Du skal nå kunne se nettsiden.
+Databasene som ble opprettet i sted er helt tomme, så innholdet på nettsiden er deretter.
+Skriv inn noe i tekstfeltene på toppen og oppdater siden for å se mer innhold.
+
+#kommentar
+Oppgaven ble noe fort gjort da jeg jobber på denne og forbreder fremvisning av bacheloren min samtidig.
+Det ble noen ting som ikke rakk og komme med av den grunn. Søk på relasjoner og server/service listen ble ikke ferdig.
+
+Jeg hadde også gjort meg mer flid med delt opp index.js i flere komponenter.
 
 # Oppgavetekst
 
