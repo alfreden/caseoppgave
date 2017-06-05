@@ -1,0 +1,27 @@
+C:\Users\deser\OneDrive\Dokumenter\Visual Studio 2017\Projects\FullstackCasen\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.deps.json
+C:\Users\deser\OneDrive\Dokumenter\Visual Studio 2017\Projects\FullstackCasen\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.runtimeconfig.json
+C:\Users\deser\OneDrive\Dokumenter\Visual Studio 2017\Projects\FullstackCasen\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.runtimeconfig.dev.json
+C:\Users\deser\OneDrive\Dokumenter\Visual Studio 2017\Projects\FullstackCasen\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.dll
+C:\Users\deser\OneDrive\Dokumenter\Visual Studio 2017\Projects\FullstackCasen\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.csprojResolveAssemblyReference.cache
+C:\Users\deser\OneDrive\Dokumenter\Visual Studio 2017\Projects\FullstackCasen\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.AssemblyInfo.cs
+C:\Users\deser\OneDrive\Dokumenter\Visual Studio 2017\Projects\FullstackCasen\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.pdb
+C:\Users\deser\OneDrive\Dokumenter\Visual Studio 2017\Projects\FullstackCasen\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.dll
+C:\Users\deser\OneDrive\Dokumenter\Visual Studio 2017\Projects\FullstackCasen\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.pdb
+C:\Users\toremyklebust\Documents\aagehelp\FullstackReact\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.deps.json
+C:\Users\toremyklebust\Documents\aagehelp\FullstackReact\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.runtimeconfig.json
+C:\Users\toremyklebust\Documents\aagehelp\FullstackReact\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.runtimeconfig.dev.json
+C:\Users\toremyklebust\Documents\aagehelp\FullstackReact\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.dll
+C:\Users\toremyklebust\Documents\aagehelp\FullstackReact\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.pdb
+C:\Users\toremyklebust\Documents\aagehelp\FullstackReact\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.AssemblyInfo.cs
+C:\Users\toremyklebust\Documents\aagehelp\FullstackReact\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.dll
+C:\Users\toremyklebust\Documents\aagehelp\FullstackReact\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.pdb
+C:\Users\toremyklebust\Documents\aagehelp\FullstackReact\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.csprojResolveAssemblyReference.cache
+C:\Users\deser\Desktop\aagehelp\FullstackReact\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.deps.json
+C:\Users\deser\Desktop\aagehelp\FullstackReact\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.runtimeconfig.json
+C:\Users\deser\Desktop\aagehelp\FullstackReact\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.runtimeconfig.dev.json
+C:\Users\deser\Desktop\aagehelp\FullstackReact\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.dll
+C:\Users\deser\Desktop\aagehelp\FullstackReact\FullstackCasen\bin\Debug\netcoreapp1.1\FullstackCasen.pdb
+C:\Users\deser\Desktop\aagehelp\FullstackReact\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.csprojResolveAssemblyReference.cache
+C:\Users\deser\Desktop\aagehelp\FullstackReact\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.AssemblyInfo.cs
+C:\Users\deser\Desktop\aagehelp\FullstackReact\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.dll
+C:\Users\deser\Desktop\aagehelp\FullstackReact\FullstackCasen\obj\Debug\netcoreapp1.1\FullstackCasen.pdb

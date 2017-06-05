@@ -1,0 +1,19 @@
+.list-item{
+    background-color: #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+}
+
+.main-item{
+    flex: 1;
+}
