@@ -22,7 +22,7 @@ const deleteServer = (id) => {
 
 const updateServer = (id, name) => {
     const postUrl = `http://localhost:61951/api/server/update?id=${id}&name=${name}`
-    let result = fetch(postUrl, {method: "PUT"});
+    let result = fetch(postUrl, { method: "PUT" });
 }
 /*End ServerDB Connections*/
 
@@ -46,7 +46,7 @@ const deleteService = (id) => {
 
 const updateService = (id, name) => {
     const postUrl = `http://localhost:61951/api/service/update?id=${id}&name=${name}`
-    let result = fetch(postUrl, {method: "PUT"});
+    let result = fetch(postUrl, { method: "PUT" });
 }
 /*End ServiceDB Connections*/
 
@@ -59,12 +59,13 @@ const fetchServerServices = () => {
 
 const createServerService = (serverId, serviceId) => {
     const postUrl = `http://localhost:61951/api/serverservice/create?serverId=${serverId}&serviceId=${serviceId}`
-    fetch(postUrl, {method: "POST"});
+    fetch(postUrl, { method: "POST" });
 }
 
-const getServersServiceses = (serverId) => {
-    const postUrl = `http://localhost:61951/api/serverservice/server?serverId=${serverId}`
-    let result = fetch(postUrl, {method: "GET"});
+const getServersServices = (serverId) => {
+    const fetchUrl = `http://localhost:61951/api/serverservice/server?serverId=${serverId}`
+        return fetch(fetchUrl)
+        .then((response) => { return response.json() });
 }
 
 
@@ -75,7 +76,7 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {servers: [], services: [], serverservice: []}
+        this.state = { servers: [], services: [], serverservice: [] }
     }
 
     componentDidMount() {
@@ -100,15 +101,15 @@ class App extends Component {
                 <div className="main-item">
                     <ServerGenerator />
                     <ServerList />
-                    
+
                 </div>
                 <div className="main-item">
                     <ServiceGenerator />
-                    <ServiceList/>
+                    <ServiceList />
                 </div>
                 <div className="main-item">
                     <ServerServiceGenerator servers={this.state.servers} services={this.state.services} />
-                    <ServerServiceList/>
+                    <ServerServiceList />
                 </div>
             </div>
         );
@@ -116,11 +117,37 @@ class App extends Component {
 }
 /** End Main */
 
+class ServicesOnServer extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = ({ service: [] })
+    }
+    componentWillMount() {
+
+        let serverservicePromise = getServersServices(this.props.id);
+
+        serverservicePromise.then((service) => {
+            this.setState({ service: service });
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.service.length > 0 && this.state.service.map((services) =>
+                    <p>service name: {services.service.id}</p>
+                )}
+            </div>
+        )
+    }
+}
+
 class ServerServiceList extends Component {
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
             server: [], serverservice: []
         }
@@ -132,15 +159,14 @@ class ServerServiceList extends Component {
         serverPromise.then((server) => {
             this.setState({ server: server });
         })
+        let serverservicePromise = getServersServices(1);
 
-        let serverServicePromise = fetchServerServices();
-
-        serverServicePromise.then((serverservice) => {
-            this.setState({serverservice: serverservice})
+        serverservicePromise.then((service) => {
+            this.setState({ service: service });
         })
     }
 
-    
+
 
     render() {
         return (
@@ -149,6 +175,7 @@ class ServerServiceList extends Component {
                     <li className="list-item" key={index} >
                         <div>
                             <p>Server name: {servers.name}</p>
+                            <ServicesOnServer serverId={servers.id} />
                         </div>
                     </li>
                 )}
@@ -164,7 +191,7 @@ class ServerGenerator extends Component {
         this.state = { serverName: "" };
 
         this.updateState = this.updateState.bind(this);
-    
+
     }
 
     updateState(event) {
@@ -174,7 +201,7 @@ class ServerGenerator extends Component {
 
     render() {
         return (
-            <form onSubmit={(e) => {postServer(this.state.serverName); e.preventDefault()}}>
+            <form onSubmit={(e) => { postServer(this.state.serverName); e.preventDefault() }}>
                 <label>Create new server</label>
                 <input type="text" value={this.state.serverName} onChange={this.updateState} />
                 <input type="submit" content="POST til server" />
@@ -189,7 +216,7 @@ class ServerUpdater extends Component {
         this.state = { serverName: "" };
 
         this.updateState = this.updateState.bind(this);
-    
+
     }
 
     updateState(event) {
@@ -199,7 +226,7 @@ class ServerUpdater extends Component {
 
     render() {
         return (
-            <form onSubmit={(e) => {updateServer(this.props.uId, this.state.serverName); e.preventDefault()}}>
+            <form onSubmit={(e) => { updateServer(this.props.uId, this.state.serverName); e.preventDefault() }}>
                 <input type="text" value={this.state.serverName} onChange={this.updateState} />
                 <input type="submit" content="update db field" value="update" />
             </form>
@@ -207,17 +234,17 @@ class ServerUpdater extends Component {
     }
 };
 
-class DeleteServer extends Component{
-    
-    constructor(props){
+class DeleteServer extends Component {
+
+    constructor(props) {
         super(props);
-        this.state = {dId: "" };
+        this.state = { dId: "" };
     }
-    
-    render(){
-        return(
-            <form onSubmit={(e) => {deleteServer(this.props.dId); e.preventDefault()}}>
-                <input type="submit" value="delete" dId={this.props.id}/>
+
+    render() {
+        return (
+            <form onSubmit={(e) => { deleteServer(this.props.dId); e.preventDefault() }}>
+                <input type="submit" value="delete" dId={this.props.id} />
             </form>
         )
     }
@@ -244,13 +271,13 @@ class ServerList extends Component {
             <ul className="list">
                 {this.state.servers.length > 0 && this.state.servers.map((server) =>
                     <li className="list-item" key={server.id} >
-                        
+
                         <div>
                             Server name: {server.name}
-                            <DeleteServer dId={server.id}/>
+                            <DeleteServer dId={server.id} />
                         </div>
                         <div>
-                            <ServerUpdater uId={server.id}/>
+                            <ServerUpdater uId={server.id} />
                         </div>
                     </li>
                 )}
@@ -284,10 +311,10 @@ class ServiceList extends Component {
                     <li className="list-item" key={services.id} >
                         <div>
                             Service name: {services.name}
-                            <DeleteService dId={services.id}/>
+                            <DeleteService dId={services.id} />
                         </div>
                         <div>
-                            <ServiceUpdater uId={services.id}/>
+                            <ServiceUpdater uId={services.id} />
                         </div>
                     </li>
                 )}
@@ -302,7 +329,7 @@ class ServiceUpdater extends Component {
         this.state = { serviceName: "" };
 
         this.updateState = this.updateState.bind(this);
-    
+
     }
 
     updateState(event) {
@@ -312,9 +339,9 @@ class ServiceUpdater extends Component {
 
     render() {
         return (
-            <form onSubmit={(e) => {updateService(this.props.uId, this.state.serviceName); e.preventDefault()}}>
+            <form onSubmit={(e) => { updateService(this.props.uId, this.state.serviceName); e.preventDefault() }}>
                 <input type="text" value={this.state.serviceName} onChange={this.updateState} />
-                <input type="submit" content="update db field" value="update"/>
+                <input type="submit" content="update db field" value="update" />
             </form>
         );
     }
@@ -326,7 +353,7 @@ class ServiceGenerator extends Component {
         this.state = { serviceName: "" };
 
         this.updateState = this.updateState.bind(this);
-    
+
     }
 
     updateState(event) {
@@ -336,7 +363,7 @@ class ServiceGenerator extends Component {
 
     render() {
         return (
-            <form onSubmit={(e) => {postService(this.state.serviceName); e.preventDefault()}}>
+            <form onSubmit={(e) => { postService(this.state.serviceName); e.preventDefault() }}>
                 <label>Create new service</label>
                 <input type="text" value={this.state.serviceName} onChange={this.updateState} />
                 <input type="submit" content="POST til service" />
@@ -345,17 +372,17 @@ class ServiceGenerator extends Component {
     }
 };
 
-class DeleteService extends Component{
-    
-    constructor(props){
+class DeleteService extends Component {
+
+    constructor(props) {
         super(props);
-        this.state = {dId: "" };
+        this.state = { dId: "" };
     }
-    
-    render(){
-        return(
-            <form onSubmit={(e) => {deleteService(this.props.dId); e.preventDefault()}}>
-                <input type="submit" value="delete" dId={this.props.id}/>
+
+    render() {
+        return (
+            <form onSubmit={(e) => { deleteService(this.props.dId); e.preventDefault() }}>
+                <input type="submit" value="delete" dId={this.props.id} />
             </form>
         )
     }
@@ -365,13 +392,13 @@ class ServerServiceGenerator extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {service: "-1", server: "-1"};
+        this.state = { service: "-1", server: "-1" };
         this.createService = this.createService.bind(this);
     }
 
-    createService(){
+    createService() {
         //Check if one of the two is in default state
-        if(this.state.server == "-1" || this.state.service == "-1"){
+        if (this.state.server == "-1" || this.state.service == "-1") {
             alert("Både server og service må velges i listen");
             return;
         }
@@ -379,31 +406,31 @@ class ServerServiceGenerator extends Component {
     }
 
 
-    render(){
-        const {servers, services} = this.props;
+    render() {
+        const { servers, services } = this.props;
 
-    
 
-        return(
+
+        return (
             <div className="main-item">
-                <select onChange={(e) => this.setState({server: e.target.value})}>
+                <select onChange={(e) => this.setState({ server: e.target.value })}>
                     <option value="-1">Choose server</option>
-                    {servers.map((server) => 
+                    {servers.map((server) =>
                         <option value={server.id} key={server.id}>{server.name} - {server.id}</option>
-                        )}
+                    )}
                 </select>
 
-                <select onChange={(e) => this.setState({service: e.target.value})}>
-                <option value="-1">Choose service</option>
-                
-                    {services.map((service) => 
+                <select onChange={(e) => this.setState({ service: e.target.value })}>
+                    <option value="-1">Choose service</option>
+
+                    {services.map((service) =>
                         <option value={service.id} key={service.id}>{service.name} - {service.id}</option>
-                        )}
+                    )}
                 </select>
                 <button onClick={this.createService}>relater</button>
             </div>
         );
-        
+
     }
 }
 
