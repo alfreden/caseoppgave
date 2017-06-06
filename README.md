@@ -21,7 +21,7 @@ Skriv inn noe i tekstfeltene på toppen og oppdater siden for å se mer innhold.
 
 # kommentar
 Oppgaven ble noe fort gjort da jeg jobber på denne og forbreder fremvisning av bacheloren min samtidig.
-Det ble noen ting som ikke rakk og komme med av den grunn. Søk på relasjoner og server/service listen ble ikke ferdig.
+Jeg fikk derfor ikke gjort relasjons søk. Og sletting av relasjoner.
 
 # Oppgavetekst
 
