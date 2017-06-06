@@ -68,9 +68,6 @@ const getServersServices = (serverId) => {
         .then((response) => { return response.json() });
 }
 
-
-
-
 /** Main */
 class App extends Component {
 
@@ -117,65 +114,35 @@ class App extends Component {
 }
 /** End Main */
 
-class ServicesOnServer extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = ({ service: [] })
-    }
-    componentWillMount() {
-
-        let serverservicePromise = getServersServices(this.props.id);
-
-        serverservicePromise.then((service) => {
-            this.setState({ service: service });
-        })
-    }
-
-    render() {
-        return (
-            <div>
-                {this.state.service.length > 0 && this.state.service.map((services) =>
-                    <p>service name: {services.service.id}</p>
-                )}
-            </div>
-        )
-    }
-}
-
 class ServerServiceList extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            server: [], serverservice: []
+            serverservice: []
         }
     }
 
     componentWillMount() {
-        let serverPromise = fetchServers();
+        let serverPromise = fetchServerServices();
 
-        serverPromise.then((server) => {
-            this.setState({ server: server });
-        })
-        let serverservicePromise = getServersServices(1);
-
-        serverservicePromise.then((service) => {
-            this.setState({ service: service });
+        serverPromise.then((serverservice) => {
+            this.setState({ serverservice: serverservice });
         })
     }
 
-
-
     render() {
+
         return (
             <ul className="list">
-                {this.state.server.length > 0 && this.state.server.map((servers, index) =>
+                {this.state.serverservice.length > 0 && this.state.serverservice.map((servers, index) =>
                     <li className="list-item" key={index} >
-                        <div>
-                            <p>Server name: {servers.name}</p>
-                            <ServicesOnServer serverId={servers.id} />
+                        <div key={index}>
+                            <h3 key={servers.server.name}>Server name: {servers.server.name}</h3>
+                            {servers.services.map((services) => 
+                                <p key={index + services.name}>service name: {services.name}</p>
+                            )}
                         </div>
                     </li>
                 )}
